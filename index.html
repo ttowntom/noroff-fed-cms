@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Home | Rainy Days</title>
+		<meta
+			name="description"
+			content="Rainy Days products stand out from the competition because we prioritize durability, versatility, and comfort - without breaking the bank. Our jackets are designed to withstand a range of weather conditions, making them suitable for a variety of outdoor activities." />
+		<meta
+			name="keywords"
+			content="rain jackets, jackets, rain wear, clothing" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<script
+			src="https://kit.fontawesome.com/8d12afa6e5.js"
+			crossorigin="anonymous"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Anton&family=Fjalla+One&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100&family=Merriweather:wght@300&display=swap"
+			rel="stylesheet" />
+		<link rel="stylesheet" href="/css/styles.css" />
+		<!-- Hotjar Tracking Code for https://rainydaysixd-thr.netlify.app/ -->
+		<script>
+			(function (h, o, t, j, a, r) {
+				h.hj =
+					h.hj ||
+					function () {
+						(h.hj.q = h.hj.q || []).push(arguments);
+					};
+				h._hjSettings = { hjid: 3734889, hjsv: 6 };
+				a = o.getElementsByTagName("head")[0];
+				r = o.createElement("script");
+				r.async = 1;
+				r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+				a.appendChild(r);
+			})(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+		</script>
+		<script src="/js/main.js" type="module"></script>
+	</head>
+	<body>
+		<!-- Start of header -->
+		<header>
+			<div class="container flex flex--space-between">
+				<a href="/"
+					><img src="/img/RainyDays_logo.svg" alt="Logo for Rainy Days"
+				/></a>
+				<!-- Start of desktop menu -->
+				<div class="flex">
+					<nav id="nav--desktop" class="flex">
+						<ul class="flex">
+							<li><a href="/" class="current">Home</a></li>
+							<li><a href="/products/?gender=female">Collection</a></li>
+							<li><a href="/about/">About</a></li>
+							<li><a href="/contact/">Contact</a></li>
+						</ul>
+					</nav>
+					<!-- Start of cart/checkout/hamburger -->
+					<div class="checkout-wrapper grid">
+						<div class="checkout--cart">
+							<a
+								href="/checkout/"
+								class="cart--icon"
+								aria-description="Items in your cart"></a>
+						</div>
+						<div class="checkout--sidecart">
+							<button id="sidecart--button" aria-expanded="false">
+								<i class="fas fa-bars fa-lg"></i>
+								<p class="visually-hidden">Menu</p>
+							</button>
+							<a href="/checkout/" class="sidecart--link">Check out</a>
+						</div>
+					</div>
+				</div>
+				<!-- Start of mobile menu -->
+				<div
+					id="nav--mobile"
+					class="flex flex--column mobile-nav"
+					data-visible="false">
+					<nav class="flex flex--column">
+						<ul class="flex flex--column">
+							<li><a href="/" class="current--mobile">Home</a></li>
+							<li><a href="/products/?gender=female">Collection</a></li>
+							<li><a href="/about/">About</a></li>
+							<li><a href="/contact/">Contact</a></li>
+						</ul>
+					</nav>
+					<div class="checkout-wrapper grid">
+						<div class="checkout--cart">
+							<a
+								id="mobile--cart--items"
+								href="checkout.html"
+								aria-description="Items in your cart"></a>
+						</div>
+						<div class="checkout--sidecart--mobile">
+							<a
+								id="mobile--cart--link"
+								href="checkout.html"
+								class="sidecart--link"
+								>Check out</a
+							>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- Start of main -->
+		<main>
+			<section id="hero" class="hero">
+				<div id="hero--img-home" class="hero--img">
+					<div class="hero--content">
+						<h1>Durable <span>rain jackets</span></h1>
+						<h2>Pushing the comfort zone</h2>
+						<div class="hero--btn flex flex--left">
+							<a href="/products/?gender=male">Men's</a>
+							<a href="/products/?gender=female">Women's</a>
+						</div>
+					</div>
+				</div>
+				<div class="diagonal--top diagonal--top-hero">
+					<div class="cta">
+						<h2>Simply better</h2>
+						<p>
+							Rainy Days products stand out from the competition because we
+							prioritize durability, versatility, and comfort - without breaking
+							the bank. Our jackets are designed to withstand a range of weather
+							conditions, making them suitable for a variety of outdoor
+							activities. With our focus on quality and affordability, we make
+							it easy for you to explore the great outdoors in style and
+							comfort.
+						</p>
+					</div>
+				</div>
+			</section>
+			<section id="featured">
+				<h2 class="center">Meet our best sellers</h2>
+				<div class="featured--container grid">
+					<div class="lds-ellipsis">
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+				</div>
+			</section>
+			<section id="newsletter">
+				<div class="diagonal--bottom">
+					<div class="cta">
+						<h2>20% off your first purchase</h2>
+						<p>
+							Sign up for our newsletter today and get a promo code for 20% off
+							your first purchase. As a subscriber, you'll also receive
+							exclusive access to new product releases, outdoor adventure tips,
+							and special promotions that are only available to our email list.
+							Don't miss out on the chance to save big and elevate your outdoor
+							experience – sign up for our newsletter now!
+						</p>
+						<div class="center">
+							<form action="/contact/signed-up/">
+								<label for="email" class="visually-hidden">Email address</label>
+								<input
+									type="email"
+									name="email"
+									id="email"
+									required="required"
+									pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+									placeholder="Enter your email address" />
+								<input type="submit" value="Sign up" />
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="reviews">
+				<h2 class="center">What our customers say</h2>
+				<p class="cta center">
+					Don't just take our word for it – see what our satisfied customers
+					have to say about their experience shopping with us.
+				</p>
+
+				<!-- Start of reviews -->
+				<div class="reviews--container container">
+					<div class="review--wrapper grid">
+						<div class="review--left"></div>
+						<div class="review--main">
+							<div class="review--top flex flex--left">
+								<img
+									src="/img/reviews/david.jpg"
+									alt="Profile image of David" />
+								<div>
+									<h3>David</h3>
+									<p>Outdoor enthusiast, loves to hike</p>
+								</div>
+							</div>
+							<p>
+								I am so glad I found Rainy Days and their Adventure Seeker
+								jacket. It's perfect for all of my camping trips - it's durable,
+								versatile, and comfortable. I've worn it in everything from
+								light rain to heavy wind and it's kept me dry and warm every
+								time. Plus, it's not too bulky so it's easy to pack.
+							</p>
+						</div>
+					</div>
+					<div class="review--wrapper grid">
+						<div class="review--left"></div>
+						<div class="review--main">
+							<div class="review--top flex flex--left">
+								<img
+									src="/img/reviews/sarah.jpg"
+									alt="Profile image of Sarah" />
+								<div>
+									<h3>Sarah</h3>
+									<p>Outdoor enthusiast, loves to hike</p>
+								</div>
+							</div>
+							<p>
+								I am absolutely in love with my Mist Master jacket from Rainy
+								Days! It's lightweight enough to wear on warmer days, but also
+								keeps me dry and warm when the weather takes a turn. I've taken
+								it on several hikes and it's held up great through all kinds of
+								conditions.
+							</p>
+						</div>
+					</div>
+					<div class="review--wrapper grid">
+						<div class="review--left"></div>
+						<div class="review--main">
+							<div class="review--top flex flex--left">
+								<img src="/img/reviews/alex.jpg" alt="Profile image of Alex" />
+								<div>
+									<h3>Alex</h3>
+									<p>Skiier</p>
+								</div>
+							</div>
+							<p>
+								I am so impressed with my Storm Chaser jacket from Rainy Days.
+								I've worn it on the slopes all winter and it's held up so well
+								against the snow and wind. It's also really comfortable and
+								moves with me as I ski. Plus, the hood fits perfectly over my
+								helmet!
+							</p>
+						</div>
+					</div>
+					<div class="review--wrapper grid">
+						<div class="review--left"></div>
+						<div class="review--main">
+							<div class="review--top flex flex--left">
+								<img
+									src="/img/reviews/emily.jpg"
+									alt="Profile image of Emily" />
+								<div>
+									<h3>Emily</h3>
+									<p>Dog walker</p>
+								</div>
+							</div>
+							<p>
+								As a dog walker, I need a jacket that can withstand the rain and
+								mud. That's why I love my Rainy Days Mud Muncher jacket. It's
+								waterproof, but also breathable so I don't overheat when I'm
+								walking the dogs. Plus, the pockets are big enough to hold
+								treats and toys!
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="cta--last">
+				<div class="diagonal--top">
+					<div class="cta">
+						<h2>
+							Ready to explore the great outdoors in style and comfort - without
+							breaking the bank?
+						</h2>
+						<p>
+							Browse our full range of collections on our products page, and
+							find the perfect jacket for your next outdoor excursion! With
+							affordable mid-range prices and versatile design, our jackets are
+							perfect for any weather condition. Don't let the rain stop you -
+							start shopping now and experience the Rainy Days difference!
+						</p>
+						<a href="productsMen.html" class="btn--white">Our collections</a>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<!-- Start of footer -->
+		<footer>
+			<div class="container footer-grid grid">
+				<div id="footer-logo">
+					<img src="/img/RainyDays_logo.svg" alt="Logo for Rainy Days" />
+				</div>
+				<div id="footer-about">
+					<p>
+						With a focus on durability and versatility, our jackets are
+						engineered to withstand various weather conditions, ensuring you
+						remain comfortable during your adventures.
+					</p>
+				</div>
+				<nav id="footer-nav">
+					<h2>Browse</h2>
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="/products/?gender=female">Collection</a></li>
+						<li><a href="/about/">About</a></li>
+						<li><a href="/contact/">Contact</a></li>
+					</ul>
+				</nav>
+				<nav id="footer-help">
+					<h2>Support</h2>
+					<ul>
+						<li><a href="#">Size guide</a></li>
+						<li><a href="#">Shipping</a></li>
+						<li><a href="#">Return policy</a></li>
+						<li><a href="#">Terms and conditions</a></li>
+					</ul>
+				</nav>
+				<div id="footer-contact">
+					<h2 id="footer-contact-h2">Contact</h2>
+					<ul>
+						<li id="footer-phone"><a href="tel:#">+44 456 678 903</a></li>
+						<li id="footer-email"><a href="mailto:#">hey@rainydays.com</a></li>
+						<li>
+							<div class="flex flex--left">
+								<a href="#">
+									<i
+										class="fa-brands fa-instagram fa-2xl"
+										aria-description="Link to Rainy Days' Instagram channel"></i>
+								</a>
+								<a href="#">
+									<i
+										class="fa-brands fa-facebook-f fa-2xl"
+										aria-description="Link to Rainy Days' Facebook page"></i>
+								</a>
+								<a href="#">
+									<i
+										class="fa-brands fa-twitter fa-2xl"
+										aria-description="Link to Rainy Days' Twitter profile"></i>
+								</a>
+							</div>
+						</li>
+					</ul>
+					<div class="flex"></div>
+				</div>
+			</div>
+			<p class="copyright">&copy; 2023 Rainy Days</p>
+		</footer>
+	</body>
+</html>
