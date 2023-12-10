@@ -32,7 +32,6 @@ export function createProductCard(products, category, product) {
 			products[product].prices.sale_price.slice(0, -2) +
 			" " +
 			products[product].prices.currency_symbol;
-		price.appendChild(discount);
 		price.appendChild(basePrice);
 	} else if (products[product].on_sale === true) {
 		let discount = document.createElement("p");
@@ -41,7 +40,6 @@ export function createProductCard(products, category, product) {
 			products[product].prices.sale_price.slice(0, -2) +
 			" " +
 			products[product].prices.currency_symbol;
-		price.appendChild(discount);
 		price.appendChild(discount);
 
 		let basePrice = document.createElement("p");
