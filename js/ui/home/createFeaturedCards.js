@@ -12,8 +12,8 @@ export function createHomeFeaturedCards(favs, apiUrl) {
 		card.href = `products/productDetails/?id=${favs[i].id}`;
 
 		let image = document.createElement("img");
-		image.src = favs[i].image;
-		image.alt = favs[i].title;
+		image.src = favs[i].images[0].src;
+		image.alt = favs[i].name;
 
 		let textSection = document.createElement("div");
 		textSection.classList.add(
@@ -24,29 +24,38 @@ export function createHomeFeaturedCards(favs, apiUrl) {
 		);
 
 		let title = document.createElement("h3");
-		title.innerText = favs[i].title;
+		title.innerText = favs[i].name;
 
 		let price = document.createElement("div");
 		price.classList.add("product--card-price-container");
-		if (favs[i].discountedPrice === favs[i].price) {
+		if (favs[i].on_sale === false) {
 			let basePrice = document.createElement("p");
 			basePrice.classList.add(
 				"product--card-uppercase",
 				"product--card-single-line"
 			);
-			basePrice.innerText = "$" + favs[i].price;
+			basePrice.innerText =
+				favs[i].prices.price.slice(0, -2) +
+				" " +
+				favs[i].prices.currency_symbol;
 			price.appendChild(basePrice);
-		} else if (favs[i].discountedPrice < favs[i].price) {
+		} else if (favs[i].on_sale === true) {
 			let discount = document.createElement("p");
 			discount.classList.add(
 				"product--card-uppercase",
 				"product--card-on-sale"
 			);
-			discount.innerText = "$" + favs[i].discountedPrice;
+			discount.innerText =
+				favs[i].prices.sale_price.slice(0, -2) +
+				" " +
+				favs[i].prices.currency_symbol;
 			price.appendChild(discount);
 
 			let basePrice = document.createElement("p");
-			basePrice.innerText = "$" + favs[i].price;
+			basePrice.innerText =
+				favs[i].prices.price.slice(0, -2) +
+				" " +
+				favs[i].prices.currency_symbol;
 			basePrice.classList.add("line-through");
 			price.appendChild(basePrice);
 		}

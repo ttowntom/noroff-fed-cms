@@ -3,7 +3,7 @@ import * as ui from "/js/ui/index.js";
 
 export function home() {
 	// Fetch products
-	const apiUrl = `https://api.noroff.dev/api/v1/rainy-days/`;
+	const apiUrl = "https://wp.ttowntom.com/wp-json/wc/store/products/";
 	let products;
 	let favs = [];
 
@@ -13,7 +13,7 @@ export function home() {
 
 			// Find three favorites to feature
 			for (let i = 0; i < products.length; i++) {
-				if (favs.length < 3 && products[i].favorite === true) {
+				if (favs.length < 3 && products[i].on_sale === true) {
 					favs.push(products[i]);
 				}
 			}
