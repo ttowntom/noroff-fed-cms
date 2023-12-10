@@ -45,11 +45,14 @@ export function products() {
 	window.changePageTitle(title);
 
 	// Fetch product data
-	const apiUrl = "https://api.noroff.dev/api/v1/rainy-days/";
+	// const apiUrl = "https://api.noroff.dev/api/v1/rainy-days/";
+	const apiUrl = "https://wp.ttowntom.com/wp-json/wc/store/products/";
 	let products = [];
 	async function getProducts() {
 		try {
 			products = await api.getAllProducts(apiUrl);
+
+			console.log(products);
 
 			// Render product cards
 			const productsContainer = document.querySelector(`#products`);
