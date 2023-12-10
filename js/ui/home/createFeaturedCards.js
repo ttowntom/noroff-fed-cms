@@ -53,7 +53,7 @@ export function createHomeFeaturedCards(favs, apiUrl) {
 
 			let basePrice = document.createElement("p");
 			basePrice.innerText =
-				favs[i].prices.price.slice(0, -2) +
+				favs[i].prices.regular_price.slice(0, -2) +
 				" " +
 				favs[i].prices.currency_symbol;
 			basePrice.classList.add("line-through");

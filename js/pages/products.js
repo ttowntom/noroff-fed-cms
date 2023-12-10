@@ -45,7 +45,6 @@ export function products() {
 	window.changePageTitle(title);
 
 	// Fetch product data
-	// const apiUrl = "https://api.noroff.dev/api/v1/rainy-days/";
 	const apiUrl = "https://wp.ttowntom.com/wp-json/wc/store/products/";
 	let products = [];
 	async function getProducts() {
@@ -59,7 +58,7 @@ export function products() {
 			productsContainer.innerHTML = `<h2 class="visually-hidden">Women's jackets</h2>`;
 
 			for (let product = 0; product < products.length; product++) {
-				if (products[product].gender.toLowerCase() === category) {
+				if (products[product].categories[0].slug.toLowerCase() === category) {
 					// Create product cards
 					let cards = ui.createProductCard(products, category, product);
 					productsContainer.appendChild(cards);
