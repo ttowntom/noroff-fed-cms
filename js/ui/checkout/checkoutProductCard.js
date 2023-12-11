@@ -86,13 +86,14 @@ export function checkoutProductCard(cart) {
 		// Function to find the "Size" attribute
 		function getSizes() {
 			let sizeArr = [];
-			for (let i = 0; i < cart[i].attributes.length; i++) {
-				if (cart[i].attributes[i].name === "Size") {
-					cart[i].attributes[i].terms.forEach((term) => {
-						sizeArr.push(term.name);
-					});
-
-					return sizeArr;
+			for (let i = 0; i < cart.length; i++) {
+				for (let j = 0; j < cart[i].attributes.length; j++) {
+					if (cart[i].attributes[j].name === "Size") {
+						cart[i].attributes[j].terms.forEach((term) => {
+							sizeArr.push(term.name);
+						});
+						return sizeArr;
+					}
 				}
 			}
 			return null; // Return null if the attribute is not found
