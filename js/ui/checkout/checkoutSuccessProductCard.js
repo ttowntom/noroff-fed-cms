@@ -9,8 +9,8 @@ export function renderCheckoutSuccessProductCards() {
 
 		// Create product image
 		const cardImage = document.createElement("img");
-		cardImage.src = cart[i].image;
-		cardImage.alt = cart[i].title;
+		cardImage.src = cart[i].images[0].src;
+		cardImage.alt = cart[i].name;
 		// Apend product image to card
 		cardContainer.appendChild(cardImage);
 
@@ -29,13 +29,23 @@ export function renderCheckoutSuccessProductCards() {
 
 		// Create title
 		const title = document.createElement("h3");
-		title.innerText = cart[i].title
-			.replace("Rainy Days ", "")
-			.replace(" Jacket", "");
+		title.innerText = cart[i].name;
 
 		// Create color
 		const color = document.createElement("p");
 		color.innerText = cart[i].baseColor;
+
+		// Function to find the "Color" attribute
+		function getColor(attributes) {
+			for (let i = 0; i < attributes.length; i++) {
+				if (attributes[i].name === "Color") {
+					return attributes[i].terms[0].name;
+				}
+			}
+			return null; // Return null if the attribute is not found
+		}
+
+		color.innerText = getColor(cart[i].attributes);
 
 		// Append title and color to top
 		infoTop.appendChild(title);
@@ -60,11 +70,11 @@ export function renderCheckoutSuccessProductCards() {
 		const priceContainer = document.createElement("div");
 
 		// Create price
-		const priceAmount = cart[i].discountedPrice * cart[i].quantity;
-		const priceFormatted = priceAmount.toFixed(2);
+		const priceAmount = cart[i].prices.price.slice(0, -2) * cart[i].quantity;
+		const priceFormatted = priceAmount.toFixed(0);
 		const price = document.createElement("strong");
 		price.classList.add("float--right");
-		price.ariaDescription = "Price";
+		price.ariaLabel = "Price";
 
 		price.innerText = "$" + priceFormatted;
 		// Append price to info bottom section
