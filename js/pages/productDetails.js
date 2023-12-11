@@ -21,7 +21,10 @@ export function productDetails() {
 			// Render gallery
 			// -- Create thumbnails
 			const thumbnails = document.querySelector(`.thumbnails`);
-			const thumbnailsImages = ui.thumbnail(product.image, product.title);
+			const thumbnailsImages = ui.thumbnail(
+				product.images[0].src,
+				product.name
+			);
 			thumbnails.insertBefore(thumbnailsImages, thumbnails.firstChild);
 			// -- Gallery function
 			ui.gallery();
@@ -37,11 +40,7 @@ export function productDetails() {
 			ui.renderDetailDescription(product);
 
 			// Change page title
-			window.changePageTitle(
-				`${product.title
-					.replace("Rainy Days ", "")
-					.replace(" Jacket", "")} | Rainy Days`
-			);
+			window.changePageTitle(`${product.name} | Rainy Days`);
 		} catch (error) {
 			ui.productDetailsError();
 		}

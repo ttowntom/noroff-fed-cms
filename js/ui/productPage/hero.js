@@ -4,24 +4,33 @@ export function renderDetailsHeroSection(product, productId, category) {
 
 	// Render hero title
 	const heroTitle = document.createElement("h1");
-	heroTitle.innerText = product.title
-		.replace("Rainy Days ", "")
-		.replace(" Jacket", "");
+	heroTitle.innerText = product.name;
 
 	// Render color
 	const heroColor = document.createElement("h2");
-	heroColor.innerText = product.baseColor;
+
+	// Function to find the "Color" attribute
+	function getColor(attributes) {
+		for (let i = 0; i < attributes.length; i++) {
+			if (attributes[i].name === "Color") {
+				return attributes[i].terms[0].name;
+			}
+		}
+		return null; // Return null if the attribute is not found
+	}
+
+	heroColor.innerText = getColor(product.attributes);
 
 	// Render price tag
 	let heroPrice;
-	if (product.discountedPrice < product.price) {
+	if (product.on_sale === true) {
 		heroPrice = document.createElement("div");
 		heroPrice.classList.add("grid");
 
 		// Create base price
 		let heroBasePrice = document.createElement("p");
 		heroBasePrice.classList.add("line-through");
-		heroBasePrice.innerText = `$${product.price}`;
+		heroBasePrice.innerText = `${product.prices.regular_price.slice(0, -2)} kr`;
 
 		// Create discounted price
 		let heroDiscountedPrice = document.createElement("strong");
@@ -30,7 +39,10 @@ export function renderDetailsHeroSection(product, productId, category) {
 			"product--card-on-sale",
 			"product--card-uppercase"
 		);
-		heroDiscountedPrice.innerText = `$${product.discountedPrice}`;
+		heroDiscountedPrice.innerText = `${product.prices.sale_price.slice(
+			0,
+			-2
+		)} kr`;
 
 		// Render price
 		heroPrice.appendChild(heroDiscountedPrice);
@@ -38,7 +50,7 @@ export function renderDetailsHeroSection(product, productId, category) {
 	} else {
 		heroPrice = document.createElement("strong");
 		heroPrice.classList.add("product--hero-price", "product--card-uppercase");
-		heroPrice.innerText = `$${product.price}`;
+		heroPrice.innerText = `${product.prices.regular_price.slice(0, -2)} kr`;
 	}
 
 	// Render sizes
@@ -46,11 +58,23 @@ export function renderDetailsHeroSection(product, productId, category) {
 	heroSizes.classList.add("flex", "flex--left", "size--wrapper");
 	heroSizes.ariaLabel = "Sizes";
 
-	for (let i = 0; i < product.sizes.length; i++) {
+	// Function to find the "Size" attribute
+	function getSizes(attributes) {
+		for (let i = 0; i < attributes.length; i++) {
+			if (attributes[i].name === "Size") {
+				return attributes[i].terms;
+			}
+		}
+		return null; // Return null if the attribute is not found
+	}
+
+	const sizes = getSizes(product.attributes);
+
+	for (let i = 0; i < sizes.length; i++) {
 		const heroSize = document.createElement("div");
 		heroSize.classList.add("size", "size--ring", "flex", "center");
-		heroSize.ariaDescription = `Size: ${product.sizes[i]}`;
-		heroSize.innerText = product.sizes[i];
+		heroSize.ariaDescription = `Size: ${sizes[i].name}`;
+		heroSize.innerText = sizes[i].name;
 		heroSizes.appendChild(heroSize);
 	}
 
