@@ -17,9 +17,9 @@ export function handleShipping(cart) {
 					cost: 0,
 				};
 				if (checkedShippingRadio.value === "royal-mail") {
-					shipping.cost = 21;
+					shipping.cost = 210;
 				} else if (checkedShippingRadio.value === "express") {
-					shipping.cost = 44;
+					shipping.cost = 440;
 				}
 
 				sessionStorage.setItem("selectedShipping", JSON.stringify(shipping));

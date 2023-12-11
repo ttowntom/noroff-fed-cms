@@ -19,29 +19,31 @@ export function renderTotal(cart, selectedShipping) {
 	// Calculate subtotal
 	let subtotal = 0;
 	for (let i = 0; i < cart.length; i++) {
-		const itemCost = parseInt(cart[i].quantity * cart[i].discountedPrice);
+		const itemCost = parseInt(
+			cart[i].quantity * cart[i].prices.price.slice(0, -2)
+		);
 		subtotal += itemCost;
 	}
 	// Render subtotal
-	subtotalElement.innerText = "$" + subtotal;
+	subtotalElement.innerText = subtotal + " kr";
 
 	// Get shipping
 	let shipping = 0;
 	if (checkedShippingRadio.value === "royal-mail") {
-		shipping = 21;
+		shipping = 210;
 	} else if (checkedShippingRadio.value === "express") {
-		shipping = 44;
+		shipping = 440;
 	}
 	// Render shipping
-	shippingElement.innerText = "+$" + shipping;
+	shippingElement.innerText = "+" + shipping + " kr";
 
 	// Get coupon
 	const coupon = 20;
 	// Render coupon
-	couponElement.innerText = "-$" + coupon;
+	couponElement.innerText = "-" + coupon + " kr";
 
 	// Calculate total
 	const total = subtotal + shipping - coupon;
 	// Render total
-	totalElement.innerText = "$" + total;
+	totalElement.innerText = total + " kr";
 }
