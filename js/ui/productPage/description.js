@@ -69,4 +69,40 @@ export function renderDetailDescription(product) {
 			}
 		}
 	}
+
+	// Grab features container (ul)
+	const featuresContainer = document.querySelector(`#features`);
+
+	// Render features
+	let attributesArray = getFeatures();
+	for (let a = 0; a < attributesArray.length; a++) {
+		const li = document.createElement("li");
+		li.innerText = attributesArray[a];
+		featuresContainer.appendChild(li);
+	}
+
+	// Function to get features
+	function getFeatures() {
+		featuresContainer.innerHTML = "";
+		let attArray = [];
+		for (let i = 0; i < product.attributes.length; i++) {
+			if (product.attributes[i].name === "Features") {
+				let attArray = product.attributes[i].terms;
+				let attArrayNames = [];
+				for (let j = 0; j < attArray.length; j++) {
+					attArrayNames.push(attArray[j].name);
+				}
+				return attArrayNames;
+			}
+		}
+	}
+
+	// Render weight
+	for (let i = 0; i < product.attributes.length; i++) {
+		if (product.attributes[i].name === "Weight") {
+			const li = document.createElement("li");
+			li.innerText = product.attributes[i].terms[0].name;
+			featuresContainer.appendChild(li);
+		}
+	}
 }
