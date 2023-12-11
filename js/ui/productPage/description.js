@@ -48,7 +48,7 @@ export function renderDetailDescription(product) {
 	// Function to render rating graphics
 	function renderRating(rating, container) {
 		container.innerHTML = "";
-		for (let i = 0; i < 10; i++) {
+		for (let i = 0; i < 11; i++) {
 			if (i < rating) {
 				// Render empty dots
 				const emptyDot = document.createElement("div");
