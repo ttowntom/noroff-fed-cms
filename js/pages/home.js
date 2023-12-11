@@ -3,7 +3,8 @@ import * as ui from "/js/ui/index.js";
 
 export function home() {
 	// Fetch products
-	const apiUrl = "https://wp.ttowntom.com/wp-json/wc/store/products/";
+	const apiUrl =
+		"https://wp.ttowntom.com/wp-json/wc/store/products/?per_page=50";
 	let products;
 	let favs = [];
 

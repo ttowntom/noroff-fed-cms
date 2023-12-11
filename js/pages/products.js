@@ -45,7 +45,8 @@ export function products() {
 	window.changePageTitle(title);
 
 	// Fetch product data
-	const apiUrl = "https://wp.ttowntom.com/wp-json/wc/store/products/";
+	const apiUrl =
+		"https://wp.ttowntom.com/wp-json/wc/store/products/?per_page=50";
 	let products = [];
 	async function getProducts() {
 		try {
@@ -60,6 +61,7 @@ export function products() {
 			for (let product = 0; product < products.length; product++) {
 				if (products[product].categories[0].slug.toLowerCase() === category) {
 					// Create product cards
+					console.log(products[product].name);
 					let cards = ui.createProductCard(products, category, product);
 					productsContainer.appendChild(cards);
 				}
