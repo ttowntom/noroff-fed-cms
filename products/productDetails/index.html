@@ -22,16 +22,21 @@
 			rel="stylesheet" />
 		<link rel="stylesheet" href="/css/styles.css" />
 		<!-- Hotjar Tracking Code for https://rainydaysixd-thr.netlify.app/ -->
-<script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:3734889,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
+		<script>
+			(function (h, o, t, j, a, r) {
+				h.hj =
+					h.hj ||
+					function () {
+						(h.hj.q = h.hj.q || []).push(arguments);
+					};
+				h._hjSettings = { hjid: 3734889, hjsv: 6 };
+				a = o.getElementsByTagName("head")[0];
+				r = o.createElement("script");
+				r.async = 1;
+				r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+				a.appendChild(r);
+			})(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+		</script>
 		<script src="/js/main.js" type="module"></script>
 		<!-- Gallery scripts suggested by ChatGTP -->
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -130,23 +135,7 @@
 					class="hero--img"
 					aria-hidden="true"></div>
 
-				<div class="flex flex--left thumbnails" aria-hidden="true">
-					<img
-						src="/img/products/stormChaser_women_01a.jpg"
-						alt="Storm Chaser" />
-					<img
-						src="/img/products/stormChaser_women_02.jpg"
-						alt="Storm Chaser" />
-					<img
-						src="/img/products/stormChaser_women_03.jpg"
-						alt="Storm Chaser" />
-					<img
-						src="/img/products/stormChaser_women_04.jpg"
-						alt="Storm Chaser" />
-					<img
-						src="/img/products/stormChaser_women_05.jpg"
-						alt="Storm Chaser" />
-				</div>
+				<div class="flex flex--left thumbnails" aria-hidden="true"></div>
 
 				<div class="hero--content">
 					<div class="lds-ellipsis">
@@ -155,15 +144,13 @@
 						<div></div>
 						<div></div>
 					</div>
+				</div>
 			</section>
 			<section id="product--info" class="product--details grid">
 				<div class="bg--accent-light product--spacer"></div>
 				<div class="bg--accent product--spacer"></div>
 
 				<div class="bg--accent-light clr--black product--description-container">
-					<h2 class="product--description-header">
-						The ultimate protection against the elements
-					</h2>
 					<div class="lds-ellipsis">
 						<div></div>
 						<div></div>
@@ -176,90 +163,61 @@
 					<div class="product--description-header">
 						<h3>Waterproof</h3>
 						<div
+							id="rating-waterproof"
 							class="flex flex--left scale--wrapper"
 							aria-description="Scale">
-							<div class="scale scale--dot flex center"></div>
-							<div class="scale scale--dot flex center"></div>
-							<div class="scale scale--dot flex center"></div>
-							<div class="scale scale--dot flex center"></div>
-							<div class="scale scale--dot flex center"></div>
-							<div class="scale scale--dot flex center"></div>
-							<div class="scale scale--dot flex center"></div>
-							<div class="scale scale--dot flex center"></div>
-							<div class="scale scale--dot flex center"></div>
-							<div
-								class="scale scale--dot flex center"
-								aria-desciption="Score, out of 10">
-								10
+							<div class="lds-ellipsis">
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
 							</div>
 						</div>
 					</div>
 					<div>
 						<h3>Windproof</h3>
 						<div
+							id="rating-windproof"
 							class="flex flex--left scale--wrapper"
 							aria-description="Scale">
-							<div class="scale scale--dot flex center"></div>
-							<div class="scale scale--dot flex center"></div>
-							<div class="scale scale--dot flex center"></div>
-							<div class="scale scale--dot flex center"></div>
-							<div class="scale scale--dot flex center"></div>
-							<div class="scale scale--dot flex center"></div>
-							<div class="scale scale--dot flex center"></div>
-							<div
-								class="scale scale--dot flex center"
-								aria-desciption="Score, out of 10">
-								8
+							<div class="lds-ellipsis">
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
 							</div>
-							<div class="scale scale--ring flex center"></div>
-							<div class="scale scale--ring flex center"></div>
 						</div>
 					</div>
 					<div>
 						<h3>Durable</h3>
 						<div
+							id="rating-durable"
 							class="flex flex--left scale--wrapper"
 							aria-description="Scale">
-							<div class="scale scale--dot flex center"></div>
-							<div class="scale scale--dot flex center"></div>
-							<div class="scale scale--dot flex center"></div>
-							<div class="scale scale--dot flex center"></div>
-							<div class="scale scale--dot flex center"></div>
-							<div class="scale scale--dot flex center"></div>
-							<div class="scale scale--dot flex center"></div>
-							<div class="scale scale--dot flex center"></div>
-							<div
-								class="scale scale--dot flex center"
-								aria-desciption="Score, out of 10">
-								9
+							<div class="lds-ellipsis">
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
 							</div>
-
-							<div class="scale scale--ring flex center"></div>
 						</div>
 					</div>
 					<div>
 						<h3>Lightweight</h3>
 						<div
+							id="rating-lightweight"
 							class="flex flex--left scale--wrapper"
 							aria-description="Scale">
-							<div class="scale scale--dot flex center"></div>
-							<div class="scale scale--dot flex center"></div>
-							<div class="scale scale--dot flex center"></div>
-							<div class="scale scale--dot flex center"></div>
-							<div
-								class="scale scale--dot flex center"
-								aria-desciption="Score, out of 10">
-								5
+							<div class="lds-ellipsis">
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
 							</div>
-							<div class="scale scale--ring flex center"></div>
-							<div class="scale scale--ring flex center"></div>
-							<div class="scale scale--ring flex center"></div>
-							<div class="scale scale--ring flex center"></div>
-							<div class="scale scale--ring flex center"></div>
 						</div>
 					</div>
 					<h2>Features</h2>
-					<ul>
+					<ul id="features">
 						<li>Waterproof and windproof shell material</li>
 						<li>Breathable inner lining</li>
 						<li>Adjustable hood, cuffs, and hem</li>
