@@ -13,8 +13,8 @@ export function checkoutProductCard(cart) {
 
 		// Create product image
 		const cardImage = document.createElement("img");
-		cardImage.src = cart[i].image;
-		cardImage.alt = cart[i].title;
+		cardImage.src = cart[i].images[0].src;
+		cardImage.alt = cart[i].name;
 		// Append image
 		cardContainer.appendChild(cardImage);
 
@@ -33,12 +33,10 @@ export function checkoutProductCard(cart) {
 
 		// Create top section elements
 		const infoTopTitle = document.createElement("h3");
-		infoTopTitle.innerText = cart[i].title
-			.replace("Rainy Days ", "")
-			.replace(" Jacket", "");
+		infoTopTitle.innerText = cart[i].name;
 
 		const infoTopGender = document.createElement("p");
-		if (cart[i].gender === "Female") {
+		if (cart[i].categories[0].name === "Female") {
 			infoTopGender.innerText = "Women's";
 		} else {
 			infoTopGender.innerText = "Men's";
@@ -83,7 +81,24 @@ export function checkoutProductCard(cart) {
 		sizeSelect.name = "size-" + cart[i].id;
 
 		// Create size options
-		cart[i].sizes.forEach((size) => {
+
+		let sizesAvb = getSizes();
+		// Function to find the "Size" attribute
+		function getSizes() {
+			let sizeArr = [];
+			for (let i = 0; i < cart[i].attributes.length; i++) {
+				if (cart[i].attributes[i].name === "Size") {
+					cart[i].attributes[i].terms.forEach((term) => {
+						sizeArr.push(term.name);
+					});
+
+					return sizeArr;
+				}
+			}
+			return null; // Return null if the attribute is not found
+		}
+
+		sizesAvb.forEach((size) => {
 			// Create option
 			const sizeOption = document.createElement("option");
 			sizeOption.value = size;
@@ -160,9 +175,10 @@ export function checkoutProductCard(cart) {
 				cart[itemIndex].quantity = newQuantity;
 				localStorage.setItem("cartItems", JSON.stringify(cart));
 
-				const newPrice = cart[itemIndex].discountedPrice * newQuantity;
-				const formattedPrice = newPrice.toFixed(2);
-				price.innerText = "$" + formattedPrice;
+				const newPrice =
+					cart[itemIndex].prices.price.slice(0, -2) * newQuantity;
+				const formattedPrice = newPrice.toFixed(0);
+				price.innerText = formattedPrice + " kr";
 
 				ui.renderTotal(cart);
 			}
@@ -183,9 +199,9 @@ export function checkoutProductCard(cart) {
 		const priceElement = document.createElement("div");
 		const price = document.createElement("strong");
 		price.ariaDescription = "Price";
-		const priceAmount = cart[i].discountedPrice * cart[i].quantity;
-		const priceFormatted = priceAmount.toFixed(2);
-		price.innerText = "$" + priceFormatted;
+		const priceAmount = cart[i].prices.price.slice(0, -2) * cart[i].quantity;
+		const priceFormatted = priceAmount.toFixed(0);
+		price.innerText = priceFormatted + " kr";
 		priceElement.appendChild(price);
 
 		// Append price
@@ -195,7 +211,7 @@ export function checkoutProductCard(cart) {
 		const removeElement = document.createElement("div");
 		const removeIcon = document.createElement("i");
 		removeIcon.classList.add("fa-solid", "fa-trash-can", "float--right");
-		removeIcon.ariaDescription = "Remove from cart";
+		removeIcon.ariaLabel = "Remove from cart";
 		removeElement.appendChild(removeIcon);
 
 		// Add event listener to remove element
