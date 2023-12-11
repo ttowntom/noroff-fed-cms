@@ -9,7 +9,7 @@ export function productDetails() {
 	const category = params.searchParams.get("gender");
 
 	// Fetch product data
-	const apiUrl = `https://api.noroff.dev/api/v1/rainy-days/${productId}`;
+	const apiUrl = `https://wp.ttowntom.com/wp-json/wc/store/products/${productId}`;
 
 	let product;
 	async function getProduct() {

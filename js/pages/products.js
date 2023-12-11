@@ -52,8 +52,6 @@ export function products() {
 		try {
 			products = await api.getAllProducts(apiUrl);
 
-			console.log(products);
-
 			// Render product cards
 			const productsContainer = document.querySelector(`#products`);
 			productsContainer.innerHTML = `<h2 class="visually-hidden">Women's jackets</h2>`;
@@ -61,7 +59,6 @@ export function products() {
 			for (let product = 0; product < products.length; product++) {
 				if (products[product].categories[0].slug.toLowerCase() === category) {
 					// Create product cards
-					console.log(products[product].name);
 					let cards = ui.createProductCard(products, category, product);
 					productsContainer.appendChild(cards);
 				}

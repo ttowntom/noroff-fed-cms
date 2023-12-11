@@ -7,7 +7,7 @@ export async function renderBreadcrumbs() {
 	const productId = params.searchParams.get("id");
 
 	// Product data api
-	const apiUrl = `https://api.noroff.dev/api/v1/rainy-days/${productId}`;
+	const apiUrl = `https://wp.ttowntom.com/wp-json/wc/store/products/${productId}`;
 
 	// Get HTML element
 	const breadcrumbsElement = document.querySelector("#breadcrumbs--nav");
@@ -17,7 +17,7 @@ export async function renderBreadcrumbs() {
 		const product = await api.getProduct(apiUrl);
 
 		// Set up category
-		let category = product.gender.toLowerCase();
+		let category = product.categories[0].slug.toLowerCase();
 
 		// Create breadcrumbs
 		const breadcrumbs = document.createElement("div");
@@ -46,18 +46,14 @@ export async function renderBreadcrumbs() {
 		// Create product link
 		const bcProductLink = document.createElement("a");
 		bcProductLink.href = `/products/productDetails/?id=${productId}`;
-		bcProductLink.innerText = product.title
-			.replace("Rainy Days ", "")
-			.replace(" Jacket", "");
+		bcProductLink.innerText = product.name;
 
 		// Render on product details page
 		if (
 			location.pathname === "/products/productdetails/" ||
 			location.pathname === "/products/productDetails/"
 		) {
-			bcProduct.innerText = product.title
-				.replace("Rainy Days ", "")
-				.replace(" Jacket", "");
+			bcProduct.innerText = product.name;
 			bcProduct.classList.add("current");
 			breadcrumbs.appendChild(bcProduct);
 			breadcrumbsElement.innerHTML = breadcrumbs.innerHTML;
