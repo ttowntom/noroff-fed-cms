@@ -1,9 +1,10 @@
 // Create gallery thumbnail
 export function thumbnail(url, alt) {
+	let thumbsnails = document.querySelector(`.thumbnails`);
 	const thumbnail = document.createElement("img");
 	thumbnail.src = url;
 	thumbnail.alt = alt;
-	thumbnail.classList.add("active");
+	thumbsnails.appendChild(thumbnail);
 	return thumbnail;
 }
 

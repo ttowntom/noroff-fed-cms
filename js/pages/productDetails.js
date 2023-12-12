@@ -20,12 +20,14 @@ export function productDetails() {
 			ui.renderBreadcrumbs();
 			// Render gallery
 			// -- Create thumbnails
+			product.images.forEach((image) => {
+				ui.thumbnail(image.src, product.name);
+			});
+
+			// -- Set first thumbnail as active
 			const thumbnails = document.querySelector(`.thumbnails`);
-			const thumbnailsImages = ui.thumbnail(
-				product.images[0].src,
-				product.name
-			);
-			thumbnails.insertBefore(thumbnailsImages, thumbnails.firstChild);
+			thumbnails.firstChild.classList.add("active");
+
 			// -- Gallery function
 			ui.gallery();
 
