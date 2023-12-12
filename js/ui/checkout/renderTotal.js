@@ -1,8 +1,5 @@
 export function renderTotal(cart, selectedShipping) {
 	const subtotalElement = document.querySelector(`.checkout--subtotal`);
-	// const checkedShippingRadio = document.querySelector(
-	// 	'input[name="shipping"]:checked'
-	// );
 	let checkedShippingRadio;
 	if (selectedShipping) {
 		checkedShippingRadio = selectedShipping;
