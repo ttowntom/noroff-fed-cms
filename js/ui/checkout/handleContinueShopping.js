@@ -2,6 +2,8 @@ export function handleContinueShopping() {
 	const button = document.querySelector(`.btn--continue`);
 
 	button.addEventListener("click", () => {
-		sessionStorage.clear();
+		sessionStorage.removeItem("formData");
+		sessionStorage.removeItem("cartItems");
+		sessionStorage.removeItem("selectedShipping");
 	});
 }
