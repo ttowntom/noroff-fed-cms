@@ -1072,8 +1072,7 @@ Checkout page
 	min-width: 11rem;
 }
 
-.checkout--card-select,
-.checkout--card-bottom {
+.checkout--card-select {
 	grid-template-columns: 1fr 1fr;
 	align-items: end;
 }
@@ -1082,8 +1081,13 @@ Checkout page
 	margin-top: 1rem;
 }
 
+#checkout--totals {
+	grid-template-columns: 1fr 1fr;
+}
+
 .checkout--card-bottom strong {
 	font-size: 1rem;
+	width: max-content;
 }
 
 .checkout--card-bottom i {
@@ -1095,8 +1099,7 @@ Checkout page
 }
 
 .checkout--card-shipping {
-	grid-template-columns: auto auto;
-	align-items: end;
+	grid-template-columns: 1fr 1fr;
 }
 
 .checkout--card-shipping label {
@@ -1496,7 +1499,7 @@ Media queries
 
 	/* ----------Checkout success page---------- */
 	.checkout--customer-information-content {
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: auto;
 	}
 
 	/* ----------About page---------- */
