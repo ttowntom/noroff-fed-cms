@@ -29,7 +29,10 @@ export function createProductCard(products, category, product) {
 			"product--card-single-line"
 		);
 		basePrice.innerText =
-			products[product].prices.sale_price.slice(0, -2) +
+			Number(products[product].prices.sale_price.slice(0, -2)).toLocaleString(
+				"no-NO",
+				{ minimumFractionDigits: 0 }
+			) +
 			" " +
 			products[product].prices.currency_symbol;
 		price.appendChild(basePrice);
@@ -37,16 +40,16 @@ export function createProductCard(products, category, product) {
 		let discount = document.createElement("p");
 		discount.classList.add("product--card-uppercase", "product--card-on-sale");
 		discount.innerText =
-			products[product].prices.sale_price.slice(0, -2) +
+			Number(products[product].prices.sale_price.slice(0, -2)).toLocaleString(
+				"no-NO",
+				{ minimumFractionDigits: 0 }
+			) +
 			" " +
 			products[product].prices.currency_symbol;
 		price.appendChild(discount);
 
 		let basePrice = document.createElement("p");
-		basePrice.innerText =
-			products[product].prices.regular_price.slice(0, -2) +
-			" " +
-			products[product].prices.currency_symbol;
+		basePrice.innerText = +" " + products[product].prices.currency_symbol;
 		price.appendChild(discount);
 		basePrice.classList.add("line-through");
 		price.appendChild(basePrice);

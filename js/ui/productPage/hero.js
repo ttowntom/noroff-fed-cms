@@ -30,7 +30,9 @@ export function renderDetailsHeroSection(product, productId, category) {
 		// Create base price
 		let heroBasePrice = document.createElement("p");
 		heroBasePrice.classList.add("line-through");
-		heroBasePrice.innerText = `${product.prices.regular_price.slice(0, -2)} kr`;
+		heroBasePrice.innerText = `${Number(
+			product.prices.regular_price.slice(0, -2)
+		).toLocaleString("no-NO", { minimumFractionDigits: 0 })} kr`;
 
 		// Create discounted price
 		let heroDiscountedPrice = document.createElement("strong");
@@ -39,10 +41,9 @@ export function renderDetailsHeroSection(product, productId, category) {
 			"product--card-on-sale",
 			"product--card-uppercase"
 		);
-		heroDiscountedPrice.innerText = `${product.prices.sale_price.slice(
-			0,
-			-2
-		)} kr`;
+		heroDiscountedPrice.innerText = `${Number(
+			product.prices.sale_price.slice(0, -2)
+		).toLocaleString("no-NO", { minimumFractionDigits: 0 })} kr`;
 
 		// Render price
 		heroPrice.appendChild(heroDiscountedPrice);
@@ -50,7 +51,9 @@ export function renderDetailsHeroSection(product, productId, category) {
 	} else {
 		heroPrice = document.createElement("strong");
 		heroPrice.classList.add("product--hero-price", "product--card-uppercase");
-		heroPrice.innerText = `${product.prices.regular_price.slice(0, -2)} kr`;
+		heroPrice.innerText = `${Number(
+			product.prices.regular_price.slice(0, -2)
+		).toLocaleString("no-NO", { minimumFractionDigits: 0 })} kr`;
 	}
 
 	// Render sizes

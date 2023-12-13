@@ -22,7 +22,10 @@ export function renderTotal(cart, selectedShipping) {
 		subtotal += itemCost;
 	}
 	// Render subtotal
-	subtotalElement.innerText = subtotal + " kr";
+	subtotalElement.innerText =
+		subtotal.toLocaleString("no-NO", {
+			minimumFractionDigits: 0,
+		}) + " kr";
 
 	// Get shipping
 	let shipping = 0;
@@ -42,5 +45,8 @@ export function renderTotal(cart, selectedShipping) {
 	// Calculate total
 	const total = subtotal + shipping - coupon;
 	// Render total
-	totalElement.innerText = total + " kr";
+	totalElement.innerText =
+		total.toLocaleString("no-NO", {
+			minimumFractionDigits: 0,
+		}) + " kr";
 }

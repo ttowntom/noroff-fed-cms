@@ -178,7 +178,9 @@ export function checkoutProductCard(cart) {
 
 				const newPrice =
 					cart[itemIndex].prices.price.slice(0, -2) * newQuantity;
-				const formattedPrice = newPrice.toFixed(0);
+				const formattedPrice = newPrice.toLocaleString("no-NO", {
+					minimumFractionDigits: 0,
+				});
 				price.innerText = formattedPrice + " kr";
 
 				ui.renderTotal(cart);
@@ -201,7 +203,9 @@ export function checkoutProductCard(cart) {
 		const price = document.createElement("strong");
 		price.ariaDescription = "Price";
 		const priceAmount = cart[i].prices.price.slice(0, -2) * cart[i].quantity;
-		const priceFormatted = priceAmount.toFixed(0);
+		const priceFormatted = priceAmount.toLocaleString("no-NO", {
+			minimumFractionDigits: 0,
+		});
 		price.innerText = priceFormatted + " kr";
 		priceElement.appendChild(price);
 

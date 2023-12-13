@@ -71,12 +71,14 @@ export function renderCheckoutSuccessProductCards() {
 
 		// Create price
 		const priceAmount = cart[i].prices.price.slice(0, -2) * cart[i].quantity;
-		const priceFormatted = priceAmount.toFixed(0);
+		const priceFormatted = priceAmount.toLocaleString("no-NO", {
+			minimumFractionDigits: 0,
+		});
 		const price = document.createElement("strong");
 		price.classList.add("float--right");
 		price.ariaLabel = "Price";
 
-		price.innerText = "$" + priceFormatted;
+		price.innerText = priceFormatted + " kr";
 		// Append price to info bottom section
 		infoBottom.appendChild(price);
 
