@@ -48,25 +48,66 @@ export function products() {
 	const apiUrl =
 		"https://wp.ttowntom.com/wp-json/wc/store/products/?per_page=50";
 	let products = [];
+	let filteredProducts = [];
 	async function getProducts() {
 		try {
 			products = await api.getAllProducts(apiUrl);
+			filteredProducts = [...products];
 
-			// Render product cards
-			const productsContainer = document.querySelector(`#products`);
-			productsContainer.innerHTML = `<h2 class="visually-hidden">Women's jackets</h2>`;
-
-			for (let product = 0; product < products.length; product++) {
-				if (products[product].categories[0].slug.toLowerCase() === category) {
-					// Create product cards
-					let cards = ui.createProductCard(products, category, product);
-					productsContainer.appendChild(cards);
-				}
-			}
+			createCards(products);
 		} catch (error) {
 			console.log(error);
 			ui.productsError();
 		}
 	}
+
 	getProducts();
+
+	// Create cards
+	const createCards = function (products) {
+		// Render product cards
+		const productsContainer = document.querySelector(`#products`);
+		productsContainer.innerHTML = `<h2 class="visually-hidden">Women's jackets</h2>`;
+
+		for (let product = 0; product < products.length; product++) {
+			if (products[product].categories[0].slug.toLowerCase() === category) {
+				// Create product cards
+				let cards = ui.createProductCard(products, category, product);
+				productsContainer.appendChild(cards);
+			}
+		}
+	};
+
+	// Sort and filter
+	// -- Sort
+	const sortSelect = document.querySelectorAll(`#sort input`);
+	for (let i = 0; i < sortSelect.length; i++) {
+		sortSelect[i].addEventListener("change", function () {
+			if (sortSelect[i].value === "sort-price") {
+				filteredProducts.sort(function (a, b) {
+					return a.prices.price - b.prices.price;
+				});
+			} else if (sortSelect[i].value === "sort-name") {
+				filteredProducts.sort(function (a, b) {
+					return a.name.localeCompare(b.name);
+				});
+			}
+			createCards(filteredProducts);
+		});
+	}
+
+	// -- Filter
+	function checkSales(product) {
+		return product.on_sale === true && product.categories[0].slug === category;
+	}
+
+	const filterSelect = document.querySelector(`#filter input`);
+	filterSelect.addEventListener("change", function () {
+		if (filterSelect.checked === true) {
+			filteredProducts = products.filter(checkSales);
+		} else {
+			filteredProducts = [...products];
+		}
+		createCards(filteredProducts);
+	});
 }

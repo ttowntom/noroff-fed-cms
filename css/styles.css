@@ -294,6 +294,10 @@ select::-ms-expand {
 	justify-content: space-around;
 }
 
+.flex--wrap {
+	flex-wrap: wrap;
+}
+
 .grid {
 	display: grid;
 }
@@ -828,6 +832,30 @@ Home page (+products page)
 Products page (+home page)
 **********************************************/
 /* ----------Products---------- */
+#sort-filter {
+	margin-bottom: 1rem;
+}
+
+#sort p,
+#filter p {
+	text-transform: uppercase;
+	font-weight: var(--fw-600);
+}
+
+#sort::before {
+	font: var(--fa-font-solid);
+	content: "\f161";
+	color: var(--clr-accent-lighter);
+	margin-right: -0.5rem;
+}
+
+#filter::before {
+	font: var(--fa-font-solid);
+	content: "\f0b0";
+	color: var(--clr-accent-lighter);
+	margin-right: -0.5rem;
+}
+
 .products--grid {
 	gap: 0.25rem;
 	justify-items: center;

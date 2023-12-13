@@ -128,12 +128,46 @@
 					<div class="products--text"></div>
 				</div>
 			</section>
-			<section id="products" class="products--grid grid">
-				<div class="lds-ellipsis">
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
+			<section id="products-container">
+				<div id="sort-filter" class="flex flex--wrap flex--space-around">
+					<div id="sort" class="flex">
+						<p>Sort by</p>
+						<div>
+							<input
+								type="radio"
+								id="sort-name"
+								name="drone"
+								value="sort-name"
+								checked />
+							<label for="sort-name">Name</label>
+						</div>
+
+						<div>
+							<input
+								type="radio"
+								id="sort-price"
+								name="drone"
+								value="sort-price" />
+							<label for="sort-price">Price</label>
+						</div>
+					</div>
+					<div id="filter" class="flex">
+						<p>Filter by</p>
+						<input
+							type="checkbox"
+							name="filter-sale"
+							id="filter-sale"
+							value="sale" />
+						<label for="filter-sale">Sale</label>
+					</div>
+				</div>
+				<div id="products" class="products--grid grid">
+					<div class="lds-ellipsis">
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
 				</div>
 			</section>
 			<section id="cta">
