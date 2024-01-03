@@ -35,9 +35,9 @@ export function createHomeFeaturedCards(favs, apiUrl) {
 				"product--card-single-line"
 			);
 			basePrice.innerText =
-				favs[i].prices.price
-					.slice(0, -2)
-					.toLocaleString("no-NO", { minimumFractionDigits: 0 }) +
+				Number(favs[i].prices.price.slice(0, -2)).toLocaleString("no-NO", {
+					minimumFractionDigits: 0,
+				}) +
 				" " +
 				favs[i].prices.currency_symbol;
 			price.appendChild(basePrice);
@@ -48,18 +48,19 @@ export function createHomeFeaturedCards(favs, apiUrl) {
 				"product--card-on-sale"
 			);
 			discount.innerText =
-				favs[i].prices.sale_price
-					.slice(0, -2)
-					.toLocaleString("no-NO", { minimumFractionDigits: 0 }) +
+				Number(favs[i].prices.sale_price.slice(0, -2)).toLocaleString("no-NO", {
+					minimumFractionDigits: 0,
+				}) +
 				" " +
 				favs[i].prices.currency_symbol;
 			price.appendChild(discount);
 
 			let basePrice = document.createElement("p");
 			basePrice.innerText =
-				favs[i].prices.regular_price
-					.slice(0, -2)
-					.toLocaleString("no-NO", { minimumFractionDigits: 0 }) +
+				Number(favs[i].prices.regular_price.slice(0, -2)).toLocaleString(
+					"no-NO",
+					{ minimumFractionDigits: 0 }
+				) +
 				" " +
 				favs[i].prices.currency_symbol;
 			basePrice.classList.add("line-through");
