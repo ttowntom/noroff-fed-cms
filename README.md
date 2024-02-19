@@ -3,11 +3,13 @@
 ![image](https://i.postimg.cc/1zt8S31b/Home-Rainy-Days.png)
 
 A e-commerce website for a fictional company, selling rain jackets.
+
 The site can be viewed live at: [https://rainydayscms-thr.netlify.app/](https://rainydayscms-thr.netlify.app/)
 
 ## Description
 
 **A Noroff project repo**: This repo is for the Course Assignment in Noroff FED, JavaScript 1 course.
+
 *The brief for Rainy Days can be found at this repo: [https://github.com/NoroffFEU/first-year-cross-course-assignment-brief-one](https://github.com/NoroffFEU/first-year-cross-course-assignment-brief-one)*
 
 ### **The brief in short**:
