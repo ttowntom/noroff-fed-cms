@@ -10,6 +10,8 @@ The site can be viewed live at: [https://rainydayscms-thr.netlify.app/](https://
 
 **A Noroff project repo**: This repo is for the Course Assignment in Noroff FED, JavaScript 1 course.
 
+This project has evolved over several courses in the first year of the [Front End Development studies at Noroff](https://www.noroff.no/studier/fagskole/frontend-utvikling). What started out as only a interactive prototype has, in this final state, become a fully fledged e-commerce website built with JavaScript and using WordPress with WooCommerce as a headless CMS.
+
 *The brief for Rainy Days can be found at this repo: [https://github.com/NoroffFEU/first-year-cross-course-assignment-brief-one](https://github.com/NoroffFEU/first-year-cross-course-assignment-brief-one)*
 
 ### **The brief in short**:
